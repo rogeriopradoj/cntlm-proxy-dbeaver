@@ -1,2 +1,5 @@
 /.env
 /log_*.*
+/logs/
+!/logs/.gitkeep
+!/log_rotate.bat

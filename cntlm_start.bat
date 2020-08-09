@@ -1,6 +1,4 @@
 @echo off
-title .==.                Inicializa cntlm              .==.
-rem Inicializa proxy cntlm
 
 mode con:cols=80 lines=100
 for /f "tokens=2 delims=:." %%x in ('chcp') do set cp=%%x
@@ -18,8 +16,8 @@ IF NOT EXIST %ENVFILE% (
     goto:eof
 )
 
-echo.rodando_inicio_d%mydate%_h%mytime% >> log_%mydate%.txt
-call %~dp0cntlm.exe -v -c cntlm.ini >> log_%mydate%.txt 2>&1
+echo.rodando_inicio_d%mydate%_h%mytime% >> logs\log_%mydate%.txt
+call %~dp0cntlm.exe -v -c cntlm.ini >> logs\log_%mydate%.txt 2>&1
 
 endlocal
 chcp %cp%>nul
