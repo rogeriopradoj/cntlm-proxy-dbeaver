@@ -14,7 +14,12 @@ goto end
 rem https://stackoverflow.com/questions/14456204/batch-file-that-runs-only-during-a-specific-time
 rem se entre: 0 e 6, reiniciar_agora. 
 rem caso contrario, esperar proxima janela
-for /f "tokens=1-3 delims=:" %%a in ("%time%") do if %%a geq 0 if %%a leq 16 goto reiniciar_agora
+
+set janela_inicio=0
+rem echo %janela_inicio%
+set janela_fim=6
+rem echo %janela_fim%
+for /f "tokens=1-3 delims=:" %%a in ("%time%") do if %%a geq 0 if %%a leq 6 goto reiniciar_agora
 
 goto esperar_mais_uma_hora
 goto end
@@ -22,7 +27,7 @@ goto end
 
 :reiniciar_agora
 
-echo shutdown /r
+shutdown /r
 
 goto end
 
